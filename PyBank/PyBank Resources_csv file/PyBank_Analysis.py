@@ -1,7 +1,7 @@
 import csv
 
-BudgetData = open('budget_data.csv', 'r')
-BudgetRead = csv.DictReader(BudgetData)
+with open('budget_data.csv', newline='') as BudgetData:
+    BudgetRead = csv.DictReader(BudgetData)
 rowdata = list(BudgetRead)
 RowNum = len(rowdata)
 print("Total Months: " +str(RowNum))
