@@ -1,5 +1,10 @@
 import csv
 
+print("Financial Analysis")
+print()
+print("-------------------------")
+print()
+
 # read in data from .csv file
 BudgetData = open('budget_data.csv', 'r')
 BudgetRead = csv.DictReader(BudgetData)
@@ -7,6 +12,7 @@ BudgetRead = csv.DictReader(BudgetData)
 rowdata = list(BudgetRead)
 RowNum = len(rowdata)
 print("Total Months: " +str(RowNum))
+print()
 
 # establish baseline for sum total of Profit/Losses
 Tot_Profit_Loss = 0
@@ -14,6 +20,7 @@ Tot_Profit_Loss = 0
 for col in rowdata:
     Tot_Profit_Loss += int(col['Profit/Losses'])
 print("Total: $" + str(Tot_Profit_Loss))
+print()
 
 # read in data from .csv file (again)
 BudgetData = open('budget_data.csv', 'r')
@@ -30,6 +37,7 @@ for x in range(len(PLCol) -1):
     delta.append(Diffs)
 avg_Diffs = sum(delta) / len(delta)
 print("Average Change: $" + str(round(avg_Diffs, 2)))
+print()
 
 # assign variable for month of greatest increased profit
 MaxIncrs = max(delta)
@@ -45,6 +53,7 @@ x = index[0] +1
 # Create list from Column A
 DateCol = [str(row['Date']) for row in rowdata]
 print(f"Greatest Increase in Profits: {DateCol[x]} (${int(MaxIncrs)})")
+print()
 
 # assign variable for month of greatest increased profit
 MaxDecrs = min(delta)
