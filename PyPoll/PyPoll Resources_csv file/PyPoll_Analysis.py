@@ -28,6 +28,8 @@ for col in PollData:
     else:
         vcount[CAN] = 1
 
+TCount = []
+CCount = []
 # generate output for candidate name, % of total vote, and actual # of votes
 for CAN, count in vcount.items():
     PCNT = (count / TotVotes) *100
@@ -46,5 +48,5 @@ for x, item in enumerate(TCount):
     if item == WinCount:
         result.append(item)
         index.append(x)
-x = index[0] +1
+x = index[0]
 print(f"Winner: {CCount[x]}")
