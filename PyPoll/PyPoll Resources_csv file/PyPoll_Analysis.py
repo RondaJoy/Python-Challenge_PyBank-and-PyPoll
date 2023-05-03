@@ -8,8 +8,7 @@ print()
 # read data from .csv file
 with open('election_data.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
-    # skip header
-    next(reader)
+    next(reader)  # skip header
     PollData = list(reader)
 
 # tally the number of rows/votes
@@ -32,4 +31,20 @@ for col in PollData:
 # generate output for candidate name, % of total vote, and actual # of votes
 for CAN, count in vcount.items():
     PCNT = (count / TotVotes) *100
-print(f"{CAN}: {PCNT:.3csvfile}% ({count})")
+    format_PCNT = round(PCNT, 3)
+    print(f"{CAN}: {format_PCNT}% ({count})")
+    print()
+    TCount.append(count)
+    CCount.append(CAN)
+print("-------------------------")
+print()
+
+WinCount = max(TCount)
+result = []
+index = []
+for x, item in enumerate(TCount):
+    if item == WinCount:
+        result.append(item)
+        index.append(x)
+x = index[0] +1
+print(f"Winner: {CCount[x]}")
