@@ -18,7 +18,20 @@ delta = []
 for x in range(len(PLCol) -1):
     Diffs = PLCol[x+1] - PLCol[x]
     delta.append(Diffs)
-
 avg_Diffs = sum(delta) / len(delta)
 
 print("Average Change: $" + str(round(avg_Diffs, 2)))
+
+MaxIncrs = str(max(delta))
+result = []
+indx = []
+for v, item in enumerate(delta):
+    if item == MaxIncrs:
+        result.append(item)
+        index.append(v)
+
+x = indx
+DateCol = [str(row['Date']) for row in rowdata]
+print(DateCol[x])
+print("Greatest Increase in Profits: " + str(max(delta)))
+print("Greatest Decrease in Profits: " + str(min(delta)))
