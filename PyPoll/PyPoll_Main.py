@@ -31,18 +31,18 @@ with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analy
     print("-------------------------")
     print()
 
-# create a list to store tally for each candidate and set counters to 0
-vcount = {}
-TCount = []
-CCount = []
+    # create a list to store tally for each candidate and set counters to 0
+    vcount = {}
+    TCount = []
+    CCount = []
 
-# begin for loop to count occurrences of candidate name in Column C/2
-for col in PollData:
-    CAN = col[2]
-    if CAN in vcount:
-        vcount[CAN] += 1
-    else:
-        vcount[CAN] = 1
+    # begin for loop to count occurrences of candidate name in Column C/2
+    for col in PollData:
+        CAN = col[2]
+        if CAN in vcount:
+            vcount[CAN] += 1
+        else:
+            vcount[CAN] = 1
 
     # generate output for candidate name, % of total vote, and actual # of votes
     for CAN, count in vcount.items():
@@ -50,25 +50,31 @@ for col in PollData:
         format_PCNT = round(PCNT, 3)
         print(f"{CAN}: {format_PCNT}% ({count})")
         print()
-        print("-------------------------")
-        print()
-
+        
         file.write(f"{CAN}: {format_PCNT}% ({count})\n")
         file.write("\n")
-        file.write("-------------------------\n")
-        file.write("\n")
-
+        
         TCount.append(count)
         CCount.append(CAN)
 
-WinCount = max(TCount)
-result = []
-index = []
-for x, item in enumerate(TCount):
-    if item == WinCount:
-        result.append(item)
-        index.append(x)
-x = index[0]
+    # determine the winner
+    WinCount = max(TCount)
+    result = []
+    index = []
+    for x, item in enumerate(TCount):
+        if item == WinCount:
+            result.append(item)
+            index.append(x)
+    x = index[0]
 
-print(f"Winner: {CCount[x]}")
-file.write(f"Winner: {CCount[x]}\n")
+    winner = f"Winner: {CCount[x]}"
+    print("-------------------------")
+    print()
+    print(winner)
+    print()
+    print("-------------------------")
+    file.write("-------------------------\n")
+    file.write("\n")
+    file.write(winner + "\n")
+    file.write("\n")
+    file.write("-------------------------\n")
