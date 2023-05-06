@@ -11,16 +11,16 @@ with open(os.path.abspath(r"C:\Users\ronda\Documents\Bootcamp\GitHub\Python-Chal
 TotVotes = len(PollData)
 
 # open the text file for writing
-with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analysis_rjh.txt"), 'w') as textfile:
+with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analysis_rjh.txt"), 'w') as file:
 
-    textfile.write("Election Results\n")
-    textfile.write("\n")
-    textfile.write("-------------------------\n")
-    textfile.write("\n")
-    textfile.write(f"Total Votes: {TotVotes}\n")
-    textfile.write("\n")
-    textfile.write("-------------------------\n")
-    textfile.write("\n")
+    file.write("Election Results\n")
+    file.write("\n")
+    file.write("-------------------------\n")
+    file.write("\n")
+    file.write(f"Total Votes: {TotVotes}\n")
+    file.write("\n")
+    file.write("-------------------------\n")
+    file.write("\n")
 
     print("Election Results")
     print()
@@ -31,8 +31,11 @@ with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analy
     print("-------------------------")
     print()
 
-# create a list to store tally for each candidate
+# create a list to store tally for each candidate and set counters to 0
 vcount = {}
+TCount = []
+CCount = []
+
 # begin for loop to count occurrences of candidate name in Column C/2
 for col in PollData:
     CAN = col[2]
@@ -41,23 +44,22 @@ for col in PollData:
     else:
         vcount[CAN] = 1
 
-TCount = []
-CCount = []
-# generate output for candidate name, % of total vote, and actual # of votes
-for CAN, count in vcount.items():
-    PCNT = (count / TotVotes) *100
-    format_PCNT = round(PCNT, 3)
-    print(f"{CAN}: {format_PCNT}% ({count})")
-    print()
-    print("-------------------------")
-    print()
+    # generate output for candidate name, % of total vote, and actual # of votes
+    for CAN, count in vcount.items():
+        PCNT = (count / TotVotes) *100
+        format_PCNT = round(PCNT, 3)
+        print(f"{CAN}: {format_PCNT}% ({count})")
+        print()
+        print("-------------------------")
+        print()
 
-    textfile.write(f"{CAN}: {format_PCNT}% ({count})\n")
-    textfile.write("\n")
-    textfile.write("-------------------------\n")
-    textfile.write("\n")
-    TCount.append(count)
-    CCount.append(CAN)
+        file.write(f"{CAN}: {format_PCNT}% ({count})\n")
+        file.write("\n")
+        file.write("-------------------------\n")
+        file.write("\n")
+
+        TCount.append(count)
+        CCount.append(CAN)
 
 WinCount = max(TCount)
 result = []
@@ -69,4 +71,4 @@ for x, item in enumerate(TCount):
 x = index[0]
 
 print(f"Winner: {CCount[x]}")
-textfile.write(f"Winner: {CCount[x]}\n")
+file.write(f"Winner: {CCount[x]}\n")
