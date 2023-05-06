@@ -11,22 +11,22 @@ with open(os.path.abspath(r"C:\Users\ronda\Documents\Bootcamp\GitHub\Python-Chal
 TotVotes = len(PollData)
 
 # open the text file for writing
-with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analysis_rjh.txt"), 'w') as f:
+with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analysis_rjh.txt"), 'w') as textfile:
 
-    f.write("Election Results\n")
-    f.write("\n")
-    f.write("-------------------------\n")
-    f.write("\n")
-    f.write(f"Total Votes: {TotVotes}\n")
-    f.write("\n")
-    f.write("-------------------------\n")
-    f.write("\n")
+    textfile.write("Election Results\n")
+    textfile.write("\n")
+    textfile.write("-------------------------\n")
+    textfile.write("\n")
+    textfile.write(f"Total Votes: {TotVotes}\n")
+    textfile.write("\n")
+    textfile.write("-------------------------\n")
+    textfile.write("\n")
 
     print("Election Results")
     print()
     print("-------------------------")
     print()
-    print(f"Total Votes: " {TotVotes})
+    print(f"Total Votes: {TotVotes}")
     print()
     print("-------------------------")
     print()
@@ -52,10 +52,10 @@ for CAN, count in vcount.items():
     print("-------------------------")
     print()
 
-    f.write(f"{CAN}: {format_PCNT}% ({count})\n")
-    f.write("\n")
-    f.write("-------------------------\n")
-    f.write("\n")
+    textfile.write(f"{CAN}: {format_PCNT}% ({count})\n")
+    textfile.write("\n")
+    textfile.write("-------------------------\n")
+    textfile.write("\n")
     TCount.append(count)
     CCount.append(CAN)
 
@@ -67,5 +67,6 @@ for x, item in enumerate(TCount):
         result.append(item)
         index.append(x)
 x = index[0]
+
 print(f"Winner: {CCount[x]}")
-f.write(f"Winner: {CCount[x]}\n")
+textfile.write(f"Winner: {CCount[x]}\n")
