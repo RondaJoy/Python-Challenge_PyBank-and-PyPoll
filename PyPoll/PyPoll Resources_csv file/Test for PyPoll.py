@@ -11,7 +11,7 @@ with open(os.path.abspath(r"C:\Users\ronda\Documents\Bootcamp\GitHub\Python-Chal
 TotVotes = len(PollData)
 
 # open the text file for writing
-with open("Poll_Results.txt", "w") as file:
+with open(os.path.abspath(r"GitHub\Python-Challenge\PyPoll\analysis\PyPoll Analysis_rjh.txt"), 'w') as f:
 
     # write the headers and first two lines to the text file
     file.write("Election Results\n")
