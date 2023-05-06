@@ -33,7 +33,7 @@ avg_Diffs = sum(delta) / len(delta)
 
 # assign variable for month of greatest increased profit
 MaxIncrs = max(delta)
-# See README for citation, rows 34-41
+# See README for citation, rows 37-44
 result = []
 index = []
 for v, item in enumerate(delta):
@@ -47,7 +47,7 @@ DateCol = [str(row['Date']) for row in rowdata]
 
 # assign variable for month of greatest increased profit
 MaxDecrs = min(delta)
-# See README for citation, rows 48-55
+# See README for citation, rows 51-58
 result = []
 index = []
 for w, item in enumerate(delta):
