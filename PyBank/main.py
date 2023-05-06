@@ -1,7 +1,9 @@
 import csv
+import os
 
 # read in data from .csv file
-BudgetData = open('Resources/budget_data.csv', 'r')
+filepath = os.path.abspath(r"C:\Users\ronda\Documents\Bootcamp\GitHub\Python-Challenge\PyBank\Resources\budget_data.csv")
+BudgetData = open(filepath, 'r')
 BudgetRead = csv.DictReader(BudgetData)
 # count the rows on the spreadsheet 
 rowdata = list(BudgetRead)
@@ -14,7 +16,8 @@ for col in rowdata:
     Tot_Profit_Loss += int(col['Profit/Losses'])
 
 # read in data from .csv file (again)
-BudgetData = open('Resources/budget_data.csv', 'r')
+filepath = os.path.abspath(r"C:\Users\ronda\Documents\Bootcamp\GitHub\Python-Challenge\PyBank\Resources\budget_data.csv")
+BudgetData = open(filepath, 'r')
 BudgetRead = csv.DictReader(BudgetData)
 # create list from Column B
 PLCol = [float(row['Profit/Losses']) for row in rowdata]
@@ -47,7 +50,7 @@ MaxDecrs = min(delta)
 # See README for citation, rows 48-55
 result = []
 index = []
-for w item in enumerate(delta):
+for w, item in enumerate(delta):
     if item == MaxDecrs:
         result.append(item)
         index.append(w)
@@ -55,7 +58,7 @@ for w item in enumerate(delta):
 z = index[0] +1
 
 # print to txt file
-with open('PyBank Analysis_rjh.txt', 'w') as f:
+with open(os.path.abspath(r"GitHub\Python-Challenge\PyBank\analysis\PyBank Analysis_rjh.txt"), 'w') as f:
     f.write("Financial Analysis" + "\n")
     f.write("\n")
     f.write("-------------------------" + "\n")
