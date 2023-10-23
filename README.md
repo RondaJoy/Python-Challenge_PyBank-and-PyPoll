@@ -1,12 +1,18 @@
 
 **UCB Data Analysis Module 3**
-# Python Challenge: PyBank and PyPoll
+## Python Challenge: PyBank and PyPoll
 
 ---------------
 #### Purpose:
-PYBANK TASK: Analyze the financial records of a hypothetical company. Express profit/losses as an expression of change over time, including max and min. 
+PYBANK TASK: Analyze the financial records of a hypothetical company. Express profit/losses as an expression of change over time, including max and min.  
 
-PYPOLL TASK: Analyze vote data for a small, rura town. Tally # of votes recieved for each candidate, % of total vote and # of votes.  Indicate winner.
+(sample crunch code)  
+![pybank_sample](markdown_images/pybank_code_capture.PNG)
+
+PYPOLL TASK: Analyze vote data for a small, rura town. Tally # of votes recieved for each candidate, % of total vote and # of votes.  Indicate winner.  
+
+(PyPoll output)  
+![sample_summary](markdown_images/pypoll_output.PNG)
 
 OUTPUT: All outputs for each task will generate to the terminal/console as well as .txt file.
 
